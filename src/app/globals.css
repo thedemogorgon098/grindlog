@@ -1,0 +1,114 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --paper: #fff6e5;
+  --card: #ffffff;
+  --ink: #111111;
+  --muted: #5c5650;
+  --grid: #e7dcc7;
+  --yellow: #ffd23f;
+  --pink: #ff7ab6;
+  --sky: #5cc8ff;
+  --lime: #b8f35a;
+  --orange: #ff8a3d;
+  --violet: #b49bff;
+  --red: #ff5a5f;
+  --heat-0: #f1e7d3;
+  --heat-1: #c6efa0;
+  --heat-2: #86d64a;
+  --heat-3: #3ea83a;
+  --heat-4: #1d6b27;
+}
+
+.dark {
+  --paper: #16131c;
+  --card: #221e2a;
+  --ink: #f4efe3;
+  --muted: #a9a2b5;
+  --grid: #3a3445;
+  --heat-0: #2c2735;
+  --heat-1: #2f5a2a;
+  --heat-2: #3f8f34;
+  --heat-3: #6cc94a;
+  --heat-4: #b8f35a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-noir: #111111;
+  --color-yellow: var(--yellow);
+  --color-pink: var(--pink);
+  --color-sky: var(--sky);
+  --color-lime: var(--lime);
+  --color-orange: var(--orange);
+  --color-violet: var(--violet);
+  --color-red: var(--red);
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-grotesk);
+  --font-mono: var(--font-jb);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  background-image: radial-gradient(var(--grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@layer components {
+  .brut {
+    background: var(--card);
+    border: 3px solid var(--ink);
+    border-radius: 12px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 3px solid var(--ink);
+    border-radius: 10px;
+    padding: 0.45rem 0.9rem;
+    font-weight: 700;
+    color: #111;
+    background: var(--yellow);
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 80ms, box-shadow 80ms;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+  .btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+  .btn:disabled { opacity: 0.6; cursor: wait; }
+  .input {
+    width: 100%;
+    border: 3px solid var(--ink);
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+    background: var(--card);
+    font-family: var(--font-jb);
+    outline: none;
+  }
+  .input:focus { box-shadow: 4px 4px 0 var(--pink); }
+  .chip {
+    display: inline-block;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 0 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #111;
+  }
+  .sticker {
+    border: 3px solid #111;
+    border-radius: 14px;
+    box-shadow: 3px 3px 0 #111;
+    color: #111;
+    transition: transform 150ms;
+  }
+  .sticker:hover { transform: rotate(0deg) scale(1.08) !important; }
+  .h-title { font-family: var(--font-bricolage); font-weight: 800; letter-spacing: -0.02em; }
+}
